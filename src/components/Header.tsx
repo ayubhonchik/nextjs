@@ -7,7 +7,7 @@ const Header = () => {
       <h2>Header</h2>
       <Link href={"/"}>Home</Link>
       <Link href={"/about"}>About</Link>
-      <Link href={"/about/news"}>News</Link>
+      <Link href={"/news"}>News</Link>
       <Link href={"/lorem"}>Lorem</Link>
       <Link href={"/login"}>Login</Link>
     </div>

@@ -45,7 +45,7 @@ export default function LoginPage() {
       />
       <button
         onClick={handleLogin}
-        className="bg-blue-600 text-white px-4 py-2 rounded w-full"
+        className="bg-yellow-600 text-green px-4 py-2 rounded w-full"
       >
         Login
       </button>
