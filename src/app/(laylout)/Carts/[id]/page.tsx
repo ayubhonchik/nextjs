@@ -6,7 +6,8 @@ interface PageProps {
 }
 
 
-const CartDetailPage = async ({ params }: PageProps) => {
+const CartDetailPage = async ({ params }: {params: { id: string}}) => {
+    const id = await params.id
   const res = await fetch(`https://dummyjson.com/carts/${params.id}`);
   const cart = await res.json();
 
