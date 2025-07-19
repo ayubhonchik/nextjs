@@ -34,18 +34,18 @@ export default function LoginPage() {
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="border p-10 w-full mb-10"
+        className="border p-7 w-full mb-10 bg-orange-400"
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="border p-10 w-full mb-10"
+        className="border p-7 w-full mb-10 bg-orange-400"
       />
       <button
         onClick={handleLogin}
-        className="bg-yellow-600 text-green px-4 py-2 rounded w-full"
+        className="text-green px-4 py-2 rounded w-full bg-orange-400"
       >
         Login
       </button>
