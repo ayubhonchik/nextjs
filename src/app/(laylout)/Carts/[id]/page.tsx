@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 
 interface PageProps {
   params: {
@@ -13,7 +12,7 @@ const CartDetailPage = async ({ params }: PageProps) => {
 
   return (
     <div className="p-6">
-      <h1 className="text-xl font-bold mb-4">🛒 Cart #{cart.id}</h1>
+      <h1 className="text-xl font-bold mb-4">cart #{cart.id}</h1>
       <ul className="grid grid-cols-2 gap-4">
         {cart.products.map((product: any) => (
           <li key={product.id} className="border p-3 rounded shadow">
