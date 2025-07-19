@@ -1,14 +1,13 @@
 import React from "react";
 
-type Params = {
+interface CartPageProps {
   params: {
     id: string;
   };
-};
+}
 
-async function CartDetailPage({ params }: Params) {
-  const id = params.id;
-  const res = await fetch(`https://dummyjson.com/carts/${id}`);
+async function CartDetailPage({ params }: CartPageProps) {
+  const res = await fetch(`https://dummyjson.com/carts/${params.id}`);
   const cart = await res.json();
 
   return (
@@ -33,7 +32,6 @@ async function CartDetailPage({ params }: Params) {
 }
 
 export default CartDetailPage;
-
 
 export async function generateStaticParams() {
   const res = await fetch("https://dummyjson.com/carts");
