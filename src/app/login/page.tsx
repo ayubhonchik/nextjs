@@ -28,20 +28,20 @@ export default function LoginPage() {
 
   return (
     <div className=" m-15 p-5 max-w-md mx-auto bg-yellow rounded shadow">
-      <h2 className="text-xl font-bold mb-4">Log IN</h2>
+      <h2 className="text-xl font-bold mb-4 bg-orange-400 border rounded">Log IN</h2>
       <input
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="border p-7 w-full mb-10 bg-orange-400"
+        className="border p-4 w-full mb-10 bg-orange-400"
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="border p-7 w-full mb-10 bg-orange-400"
+        className="border p-4 w-full mb-10 bg-orange-400"
       />
       <button
         onClick={handleLogin}
