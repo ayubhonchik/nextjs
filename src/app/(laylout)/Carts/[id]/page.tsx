@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 
-interface PageProps {
+type PageProps = {
   params: {
     id: string;
   };
-}
+};
 
-export default async function CartDetail({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const res = await fetch(`https://dummyjson.com/carts/${params.id}`);
   if (!res.ok) return notFound();
 
@@ -19,9 +19,7 @@ export default async function CartDetail({ params }: PageProps) {
       <p className="text-sm mb-4 text-gray-700">
         Mahsulotlar soni: {cart.totalProducts}, quantity: {cart.totalQuantity}
       </p>
-      <p className="text-green-600 font-bold mb-4">
-        price: ${cart.total}
-      </p>
+      <p className="text-green-600 font-bold mb-4">price: ${cart.total}</p>
 
       <h3 className="text-lg font-semibold mb-3">Products:</h3>
       <ul className="space-y-2">
