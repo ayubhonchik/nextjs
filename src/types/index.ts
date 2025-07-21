@@ -17,3 +17,17 @@ export interface ICart {
   totalProducts: number;
   totalQuantity: number;
 }
+
+export interface IUser {
+  id: number;
+  name: string;
+  email: string;
+  image: string; 
+}
+
+export interface IRecipe {
+  id: number;
+  title: string;
+  description: string;
+  image: string; 
+}
