@@ -1,45 +1,21 @@
-import { notFound } from "next/navigation";
+import React from 'react';
+import { ICart } from '@/types';
+import CartCard from '@/components/Cart';
 
-type Props = {
-  params: { id: string };
-};
+const CartDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
 
-export default async function Page(props: Promise<Props>) {
-  const { params } = await props;
-
-  const res = await fetch(`https://dummyjson.com/carts/${params.id}`);
-
-  if (!res.ok) return notFound();
-
-  const cart = await res.json();
+  const response = await fetch(`https://dummyjson.com/carts/${id}`);
+  const data: ICart = await response.json();
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Cart #{cart.id}</h1>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {cart.products.map((product: any) => (
-          <div
-            key={product.id}
-            className="bg-white rounded-xl shadow-lg overflow-hidden border"
-          >
-            <img
-              src={product.thumbnail}
-              alt={product.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h2 className="font-semibold text-lg">{product.title}</h2>
-              <p className="text-gray-600">Quantity: {product.quantity}</p>
-              <p className="text-gray-600">Price: ${product.price}</p>
-              <p className="text-gray-600">Total: ${product.total}</p>
-              <p className="text-green-600 font-bold">
-                Discounted: ${product.discountedPrice}
-              </p>
-            </div>
-          </div>
-        ))}
+    <section className="bg-gray-100 py-8">
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl font-semibold text-gray-800 mb-6">Cart #{id}</h1>
+        <CartCard cart={data} />
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default React.memo(CartDetail);
