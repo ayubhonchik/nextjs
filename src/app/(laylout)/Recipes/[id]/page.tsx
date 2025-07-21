@@ -2,7 +2,7 @@
 import { notFound } from 'next/navigation';
 
 export default async function RecipeDetail({ params }: { params: { id: string } }) {
-  const res = await fetch(`https://dummyjson.com/recipes/${params.id}`);
+const res = await fetch(`https://dummyjson.com/recipes/${params.id}`);
   if (!res.ok) return notFound();
 
   const recipe = await res.json();
