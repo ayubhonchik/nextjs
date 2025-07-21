@@ -1,4 +1,12 @@
-export default async function Page({ params }: { params: { id: string } }) {
+import { notFound } from "next/navigation";
+
+type Props = {
+  params: { id: string };
+};
+
+export default async function Page(props: Promise<Props>) {
+  const { params } = await props;
+
   const res = await fetch(`https://dummyjson.com/carts/${params.id}`);
 
   if (!res.ok) return notFound();
